@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InfoGeneral from '../components/InformacionGeneral.astro';
+import TecnologiasManejadas from '../components/TecnologiasManejadas.astro';
+import HabilidadesComponente from '../components/habilidadesComponente.astro';  // Asegúrate de que el nombre esté en mayúsculas
+import { habilidades } from '../content/habilidades.ts';
+import { tecnologias } from '../content/tecnologias/tecnologias.ts';
+import { userInfo } from '../content/acerca';
+
+---
+
+<Layout title={userInfo.name}>
+  <!-- Llamada al componente InfoGeneral -->
+   <div class="mb-8">
+    <InfoGeneral 
+    name={userInfo.name}
+    title={userInfo.title}
+    description={userInfo.description}
+    imageUrl={userInfo.imageUrl} 
+  />
+   </div>
+
+
+  <!-- Renderizado de habilidades con margen -->
+  <div class="mb-8">
+    <HabilidadesComponente habilidades={habilidades} />
+  </div>
+
+  <!-- Renderizado de TecnologiasManejadas con margen -->
+  <div class="mb-8">
+    <TecnologiasManejadas 
+      lenguajes={tecnologias.lenguajes}
+      basesDeDatos={tecnologias.basesDeDatos}
+      frameworks={tecnologias.Frameworks}
+    />
+  </div>
+
+
+
+</Layout>

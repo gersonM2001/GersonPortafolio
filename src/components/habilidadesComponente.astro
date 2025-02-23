@@ -1,0 +1,28 @@
+---
+export interface Habilidad {
+  icono: string;
+  titulo: string;
+  descripcion: string;
+}
+
+export interface Props {
+  habilidades: Habilidad[];
+}
+---
+
+<!-- Contenedor con grid de 3 columnas -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <!-- Mapeando las habilidades -->
+  {Astro.props.habilidades.map((habilidad) => (
+    <div class="bg-[#677791] p-6 rounded-lg shadow-md w-full">
+      <!-- Icono -->
+      <div class="flex justify-center mb-4">
+        <img src={habilidad.icono} alt={habilidad.titulo} class="w-16 h-16 text-[#f9f9f9]" />
+      </div>
+      <!-- Título -->
+      <h3 class="text-xl font-semibold text-center text-[#f9f9f9] mb-4">{habilidad.titulo}</h3>
+      <!-- Descripción -->
+      <p class="text-[#f9f9f9] text-center">{habilidad.descripcion}</p>
+    </div>
+  ))}
+</div>

@@ -1,0 +1,38 @@
+---
+import { ProyectosCartas } from "../content/ProyectosCartas";
+import type { Proyecto } from "../interfaces/interfaces";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Proyectos">
+  <div class="container mx-auto p-6">
+    <h2 class="text-4xl font-semibold text-center mb-8">Mis Proyectos</h2>
+
+    <!-- Contenedor de tarjetas con Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {ProyectosCartas.map((proyecto: Proyecto) => (
+        <a href={`/projects/${proyecto.slug}`} class="block">
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow">
+            <!-- Imagen del proyecto -->
+            <img
+              src={proyecto.imagenUrl}
+              alt={proyecto.titulo}
+              class="w-full h-48 object-cover"
+            />
+
+            <!-- Título del proyecto -->
+            <h3 class="text-xl font-semibold text-center text-gray-900 mt-4">{proyecto.titulo}</h3>
+
+            <!-- Descripción -->
+            <p class="text-gray-600 text-center px-4 py-2">{proyecto.descripcion}</p>
+
+            <!-- Herramientas usadas -->
+            <p class="text-sm text-gray-500 text-center mb-4">
+              <strong>Herramientas:</strong> {proyecto.herramientas}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

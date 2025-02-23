@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content'; // Para acceder a la colección de proyectos
+import Layout from '../../layouts/Layout.astro'; // Layout común
+import "../../styles/styleslug.css"; 
+interface Project {
+  slug: string;
+  data: {
+    title: string;
+    description: string;
+  };
+  render: () => Promise<{ Content: any; headings: { depth: number; slug: string; text: string; }[] }>;
+}
+
+export async function getStaticPaths() {
+  const projectEntries: Project[] = await getCollection('projects');
+  return projectEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+
+interface Props {
+  entry: Project;
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+---
+<Layout title={entry.data.title}>
+  <div class="max-w-4xl mx-auto px-6 py-8">
+    <!-- Título del entry -->
+    <h1 class="slug-title">{entry.data.title}</h1>
+    
+    <!-- Descripción del entry -->
+    <p class="slug-description">{entry.data.description}</p>
+
+    <!-- Tabla de Contenidos -->
+    <nav class="slug-toc mb-8">
+      <h2 class="text-2xl font-semibold mb-4 text-orange-800">Contenido</h2>
+      <ul class="space-y-2">
+        {headings.map((heading) => (
+          <li class={`toc-level-${heading.depth} ml-${(heading.depth - 1) * 4}`}>
+            <a href={`#${heading.slug}`} class="text-orange-600 hover:text-orange-800 transition-colors font-semibold">
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Contenido del entry -->
+    <article class="prose prose-lg prose-orange max-w-none text-justify">
+      <Content />
+    </article>
+  </div>
+</Layout>

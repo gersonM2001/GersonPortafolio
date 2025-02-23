@@ -1,0 +1,56 @@
+---
+import { NavProyectos } from '../content/proyectos.ts';
+---
+
+<aside class="bg-[rgba(103,119,145,0.9)] text-white w-64 min-h-screen p-4 rounded-lg shadow-lg">
+  <nav>
+    <ul class="space-y-2">
+      {NavProyectos.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="block py-2 px-4 rounded-md transition-all hover:bg-[#023048] hover:text-white"
+          >
+            <span data-lang="es">{item.titulo}</span>
+          </a>
+          
+          <!-- Si el item tiene subitems, renderizamos el submenú -->
+          {item.subItems && (
+            <ul class="ml-4 mt-2 space-y-1">
+              {item.subItems.map((subitem) => (
+                <li>
+                  <a
+                    href={subitem.href}
+                    class="block py-1 px-4 rounded-md text-sm transition-all hover:bg-[#023048] hover:text-white"
+                  >
+                    <span data-lang="es">{subitem.titulo}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </nav>
+</aside>
+
+<style is:global>
+  /* Mejorando la apariencia de los enlaces y el contenedor */
+  aside {
+    border-radius: 12px; /* Bordes más suaves para el sidebar */
+  }
+
+  aside a:hover {
+    background-color: #023048; /* Color al hacer hover sobre los enlaces */
+    transition: all 0.3s ease; /* Transición suave para los cambios */
+  }
+
+  aside a {
+    border-radius: 8px; /* Bordes suaves en los enlaces */
+  }
+
+  aside .space-y-2 li {
+    transition: all 0.3s ease; /* Transición suave para los elementos de la lista */
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+slug: "inteligencia"
+title: "Programa para detección facial y emociones"
+description: "Inteligencia artificial orientada a salud o seguridad"
+---
+
+# Creación de la red neuronal artificial
+Desarrollo de una red neuronal artificial, la cual se desarrolló en dos fases: 
+1. Red neuronal para aprendizaje de rostros.
+2. Red neuronal para detección de emociones
+
+## Red neuronal para aprendizaje de rostros
+Esta fase del proyecto se centró en el desarrollo de una red que pudiera aprender rostros al momento de ingresar uno nuevo,
+para el entrenamiento de esta red se utilizo un algoritmo *convolucional*, y haciendo uso de herramientas facilitadas
+por el framework *Keras*, del cual se extrajo el dataset *lfw*, para posteriormente
+normalizar imagenes, aplanarlas, obtener los relieves, y así depurar las imagenes que serían usadas para el entrenamiento
+asegurando asi que la red tuviera la menor cantidad de errores posibles;
+posteriormente, haciendo uso de 5 capas para la red, se logró un entrenamiento
+de un *88%*.
+
+## Red neuronal para reconomiento de rostros
+Para la parte del entrenamiento de la red para la detección de emociones, se uso un dataset llamado *CelebA*
+el cual es amplio, lo que facilitó la obtencion de imagenes para el reconomiento de estas,
+en esta parte del proyecto se usaron *3 capas convolucionales*, aunque el aprendizaje máximo que se logró con esta fue
+de *66%*.
+
+## Aplicación
+Una vez exportados los entrenamientos, haciendo uso del lenguaje *python* se creo una aplicación de escritorio
+que facilitara la interacción con el usuario; esta aplicación constaba de dos partes: La primera en la cual se ingresaba un nuevo rostro,
+para luego, habiendo registrado ya *200 fotografias*, en todas las poses faciales, se hace un *embeding*, para agregar esta nueva información,
+la siguiente fase de esta aplicación, era como tal reconer la cara y la emoción que la persona podría tener
+se usaron ciertas librerias de keras como:
+- cv2
+- numpy
+- pickle
+- tensorflow.keras.models
+- sklearn.metrics.pairwise
+
+## Tecnologias utilizadas.
+- Keras
+- Tensorflow
+- Python

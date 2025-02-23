@@ -1,0 +1,83 @@
+/* src/styles/slug-specific.css */
+.slug-title {
+    font-size: 3rem; /* Título principal */
+    font-weight: bold;
+    color: #023048;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .slug-subtitle {
+    font-size: 2rem; /* Subtítulos */
+    font-weight: semi-bold;
+    color: #023048;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  
+  .slug-description {
+    font-size: 1.2rem;
+    color: #677791;
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+  
+  .slug-toc {
+    background-color: #f8f8f8;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .slug-toc a {
+    color: #023048;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .slug-toc a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+  }
+  
+  .prose p {
+    margin-bottom: 24px;
+    color: #677791;
+    line-height: 1.8;
+  }
+  
+  .prose h1, .prose h2, .prose h3 {
+    margin-top: 24px;
+  }
+  
+  .prose h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #023048;
+    margin-bottom: 16px;
+  }
+  
+  .prose h2 {
+    font-size: 2rem;
+    font-weight: semi-bold;
+    color: #023048;
+    margin-bottom: 14px;
+  }
+  
+  .prose h3 {
+    font-size: 1.5rem;
+    font-weight: medium;
+    color: #023048;
+    margin-bottom: 12px;
+  }
+  
+  .prose ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .prose ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+  }
+  

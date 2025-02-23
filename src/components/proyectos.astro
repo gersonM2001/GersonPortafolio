@@ -1,0 +1,26 @@
+---
+export interface Props {
+  titulo: string;
+  descripcion: string;
+  herramientas: string;
+  imagenUrl: string;
+  href: string; 
+}
+---
+
+<a href={Astro.props.href} class="block"> <!-- Agregamos el enlace para redirigir -->
+  <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out mb-8">
+    <!-- Imagen a la izquierda -->
+    <div class="w-full mb-4">
+      <img src={Astro.props.imagenUrl} alt={Astro.props.titulo} class="w-full h-48 object-cover rounded-lg shadow-lg" />
+    </div>
+
+    <!-- Texto y contenido a la derecha -->
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-orange-900 mb-4">{Astro.props.titulo}</h2>
+      <p class="text-lg text-gray-600 mb-4">{Astro.props.descripcion}</p>
+      <p class="font-semibold text-gray-800">Tecnologías utilizadas:</p>
+      <p class="text-cyan-500">{Astro.props.herramientas}</p> <!-- Usamos un color más armónico -->
+    </div>
+  </div>
+</a>
