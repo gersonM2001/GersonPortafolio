@@ -1,0 +1,50 @@
+---
+slug: "terraform"
+title: "Infraestructura con terraform"
+description: "Analisis e implimentación de una Infraestructura con terraform"
+---
+
+# Problematica
+Se planteo la problematica de el crecimiento de una empresa de ventas de artículos artesanales,
+y ante el aumento de sus ventas, y la tendencia a la alta de sus ventas, se busca mudar su Infraestructura a un servicio 
+en la nube, para este caso, fue seleccionada azure por las diferentes bondades que este puede proveer a la empresa.
+
+# ¿Qué se realizó?
+Dado el rubro de esta empresa, tomando en cuenta el creciemiento exponencial que esta teniendo, se brindó una infraestructura en azure,
+haciendo uso de la herramienta *Terraform*, para poder manejar de una manera óptima cada uno de los recursos.
+
+# Recursos 
+Entre los recursos que fueron implementados estuvo:
+1. Base de datos relacional SQL.
+2. Blob storage.
+3. Uso de queue
+4. Key vault.
+5. webapp
+6. Api
+7. Contendores de registro.
+8. Azure monitor
+9. Azure queue
+
+# ¿Cómo se trabajó?
+Dada la amplia gama de recursos que nos provee azure, se hizo un analisis de los necesitados
+por la empresa, como ser la *base de datos*, para el almacenamiento de la información, *azure blob storage*, con el 
+cual se buscó el almacenamiento de información estática, pero necesaria para la empresa, se implementó un "azure monitor"
+con el fin de llevar un analisis detallado del flujo dentro de la *webapp* y la información obtenida
+de la *api*; *Contendores de registro* y *queue storage*, para manejar información de la empresa para llevar un control detallado o
+gestionar eventos background.
+
+
+* Azure app service: Se usó para montar la página web y api
+* Azure queue: Para el manejo de mensajes que pueden haber en cola, u otro tipo de recursos
+* Azure Database: Se usó una solución usando el gestor de base de datos SQL
+* Key vault. Sirve para almacer y gestionar clase de acceso, secretos a recursos sensibles, como pueden ser las bases de datps, apis entre otros elementos que pueda ser implementadas en la infraestructura
+* Azure functions: Sirve y puede ser integtados con queue storage, para procesar mensjaes en segundo plano, o puede ser para funciones automacticas cuando recibe un mensaje en la cola
+* Monitor: Sirve para integrarlos a los servicios de los aplicativos y poder tener un monitoreo del rendimiento de las aplicaciones, asi como verificar errores y la disponibilidad de estos
+* Azure caché for redis: Es de fácil escalabilidad para manejar grandes cargas de informacion, puede ser adaptado a distintos niveles, según sea requerido. Si la aplicación requere mas capacidad, se pueden agregar mas nodos
+* Azure bus: para el manejo de datos
+
+
+# Git 
+1. https://github.com/LLTKOJI/Terraform_repository1
+2. https://github.com/gersonM2001/terraformsolution2
+3. https://github.com/gersonM2001/terraformsolution3

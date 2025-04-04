@@ -26,6 +26,7 @@ export interface Proyecto {
       {titulo: 'Analista de datos', href: '/projects/analista'},
       {titulo: 'SwiftDrop', href: '/projects/swiftdrop'},
       {titulo: 'Inversiones Caceres', href: '/projects/inversiones'},  
+      {titulo: 'Infraestructura con Azure y Terraform', href: '/projects/terraform'},
   ]
     }
       ];

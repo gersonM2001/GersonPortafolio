@@ -43,4 +43,12 @@ import type { Proyecto } from '../interfaces/interfaces';
     imagenUrl: '/imagenes/ImagenesPrincipales/swiftDrop.png',
     slug: 'swiftdrop',
     },
+    {
+    titulo: 'Infraestructura con Azure y Terraform',
+    descripcion: 'Infraestructura como código, para la creación de una infraestructura en Azure, usando Terraform',
+    herramientas: 'azure, terraform, docker',
+    imagenUrl: '/imagenes/terraform.png',
+    slug: 'terraform',
+    },
+    
 ];

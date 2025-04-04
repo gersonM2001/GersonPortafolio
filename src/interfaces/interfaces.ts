@@ -10,6 +10,5 @@
     descripcion: string;
     herramientas: string;
     imagenUrl: string;
-
     slug: string
   }
