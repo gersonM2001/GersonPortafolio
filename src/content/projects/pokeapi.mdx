@@ -1,0 +1,43 @@
+---
+slug: "pokeapi"
+title: "Servicios en la nube con PokeApi"
+description: "Desarrollo de un sistema para obtener información de pokemones, usando la PokeApi y con servicios en la nube"
+---
+
+# Propuesta
+Se presento un proyecto desarrollado con la PokeApi, que servia para para poder obtener pokemon de distitos tipos,
+aunque solomente retornaba el nombre y el tipo, por lo cual se queria enriquecer este propuesta obtiendo diferente 
+informacion como ser las estaditicas, ataques.
+Por lo cual se hizo lo siguiente:
+
+# Elementos desarrollados
+## Infraestructura en Azure + Terraform
+El primer paso fue la realización de los elementos necesarios en azure, para ello se auxilio de la herramienta Terraform
+para la creacion de BlobStorage, Queue, AppService, Aplicación de funciones, SQL Server y container Registry.
+
+### API con FastAPI
+Se amplio los endpoints que existian, en este caso se agregó un endpoint para descargar archivos CSV almacenado en el BlobStorage,
+tambien un endpoint para eliminar registros, teniendo en cuenta dos elementos, el registro en la base de datos y, el archivo creado y
+almacenado en el BlobStorage.
+
+### Funtion App
+Se tenia un servicio Serverless para manejar la información que se almacenaba en una Queue, ademas manejaba los distintos estados, "Enviado, procesando y finalizado"
+y la creacion del csv con los datos básicos; este se modifico para enriquecer el csv con los elementos necesarios, ademas de un nuevo campo
+llamado "max_random_pokemons", que era un dato que se obtenia del usuario para la cantidad de registros pokemon que queria, este esta modificado para que sean pokemon aleatorios del tipo
+seleccionado.
+
+### App Service con Next.JS
+Poseia una estructura de tabla, con la opción de seleccionar un tipo de pokemon, un boton "catch em all" para realizar la peticion a la api, y un botón para descargar el csv,
+este frontend se enriqueció agregando un input para agregar la cantidad de registros que queria, ademas de modificación para descargar el csv para llamar al nuevo endpoint solicitado,
+y un botón para eliminar el registro, este cuenta con un modal para que el usuario confirme si queria eliminar el registro o no.
+
+### SQL
+A nivel de base de datos, los cambios fueron agregar un nuevo campo "max_random_pokemons", para almacenar el valor aleatorio que el usuario deseara, además de cambio del proceso almacenado 
+para ejecutar y guardar este mismo elementos.
+
+## Repositorios en github
+1. https://github.com/gersonM2001/PokemonTerraform
+2. https://github.com/gersonM2001/ScripstSQL
+3. https://github.com/gersonM2001/PokemonAPIS
+4. https://github.com/gersonM2001/pokemonFuntionApp
+5. https://github.com/gersonM2001/pokemonUI

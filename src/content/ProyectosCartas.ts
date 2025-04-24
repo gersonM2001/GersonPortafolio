@@ -50,5 +50,12 @@ import type { Proyecto } from '../interfaces/interfaces';
     imagenUrl: '/imagenes/terraform.png',
     slug: 'terraform',
     },
+    {
+    titulo: 'Servicios en la nube con PokeApi',
+    descripcion: 'Desarrollo de un sistema para obtener información de pokemones, usando la PokeApi y con servicios en la nube',
+    herramientas: 'Terraform, Azure, Docker, Next.js, SQL, FastAPI',
+    imagenUrl: '/imagenes/ImagenesPrincipales/pokeapi.png',
+    slug: 'pokeapi',
+    },
     
 ];

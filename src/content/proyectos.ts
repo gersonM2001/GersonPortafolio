@@ -27,6 +27,7 @@ export interface Proyecto {
       {titulo: 'SwiftDrop', href: '/projects/swiftdrop'},
       {titulo: 'Inversiones Caceres', href: '/projects/inversiones'},  
       {titulo: 'Infraestructura con Azure y Terraform', href: '/projects/terraform'},
+      {titulo: 'Servicios en la nube con PokeApi', href: '/projects/pokeapi'},
   ]
     }
       ];
