@@ -1,0 +1,43 @@
+---
+slug: "pokeapi"
+title: "Cloud Services with PokeApi"
+description: "Development of a system to obtain information about Pokemon, using the PokeApi and cloud services"
+---
+
+# Proposal
+A project developed with the PokeApi was presented, which allowed users to obtain Pokémon of different types.
+However, it only returned the name and type, so the aim was to enrich this proposal by obtaining different information, such as stats and attacks.
+Therefore, the following was done:
+
+# Developed Elements
+## Infrastructure in Azure + Terraform
+The first step was to implement the necessary elements in Azure, using the Terraform tool
+for creating BlobStorage, Queue, AppService, Function Application, SQL Server, and Container Registry.
+
+### API with FastAPI
+The existing endpoints were expanded; in this case, an endpoint was added to download CSV files stored in BlobStorage,
+as well as an endpoint to delete records, taking into account two elements: the record in the database and the file created and stored in BlobStorage.
+
+### Function App
+There was a serverless service to manage the information stored in a queue, as well as handling the different states: "Sent, Processing, and Completed."
+It also created the CSV file with the basic data. This was modified to enrich the CSV with the necessary elements, in addition to a new field called "max_random_pokemons." This field was a value provided by the user for the number of Pokémon records they wanted. It was modified to display random Pokémon of the selected type.
+
+### App Service with Next.js
+It had a table structure, with the option to select a Pokémon type, a "catch 'em all" button to make the request to the API, and a button to download the CSV file.
+This frontend was enhanced by adding an input to specify the number of records, as well as a modification to download the CSV file to call the new requested endpoint.
+And a button to delete the record; this button includes a modal for the user to confirm whether they want to delete the record or not.
+
+### SQL
+At the database level, the changes were to add a new field "max_random_pokemons" to store the random value the user wanted, as well as changing the stored procedure to execute and save this same element.
+
+## Links
+1. UI --> https://ui-pokemon-dev.azurewebsites.net
+
+2. API --> https://api-pokemon-dev.azurewebsites.net
+
+## GitHub Repositories
+1. https://github.com/gersonM2001/PokemonTerraform
+2. https://github.com/gersonM2001/ScripstSQL
+3. https://github.com/gersonM2001/PokemonAPIS
+4. https://github.com/gersonM2001/pokemonFuntionApp
+5. https://github.com/gersonM2001/pokemonUI

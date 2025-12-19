@@ -1,26 +1,21 @@
 ---
-import { getCollection } from 'astro:content'; // Para acceder a la colección de proyectos
-import Layout from '../../layouts/Layout.astro'; // Layout común
-import "../../styles/styleslug.css"; 
-interface Project {
-  slug: string;
-  data: {
-    title: string;
-    description: string;
-  };
-  render: () => Promise<{ Content: any; headings: { depth: number; slug: string; text: string; }[] }>;
-}
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import "../../../styles/styleslug.css";
 
 export async function getStaticPaths() {
-  const projectEntries: Project[] = await getCollection('projects');
-  return projectEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  const esEntries = await getCollection("proyectosEs");
+  const enEntries = await getCollection("proyectosEn");
+
+  const allEntries = [...esEntries, ...enEntries];
+
+  return allEntries.map(entry => ({
+    params: {
+      lang: entry.collection === "proyectosEs" ? "es" : "en",
+      slug: entry.slug,
+    },
+    props: { entry },
   }));
-}
-
-
-interface Props {
-  entry: Project;
 }
 
 const { entry } = Astro.props;

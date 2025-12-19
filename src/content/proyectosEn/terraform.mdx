@@ -1,0 +1,45 @@
+---
+slug: "terraform"
+title: "Terraform Infraestructure"
+description: "Analysis and implementation of an infrastructure with terraforming"
+---
+
+# Problem Statement
+The problem was raised concerning the growth of a company selling handcrafted items.
+Given the increase in sales and the upward trend in sales, the company is looking to migrate its infrastructure to a cloud service.
+For this case, Azure was selected due to the various benefits it can provide to the company.
+
+# ¿Qué se realizó?
+Dado el rubro de esta empresa, tomando en cuenta el creciemiento exponencial que esta teniendo, se brindó una infraestructura en azure,
+haciendo uso de la herramienta *Terraform*, para poder manejar de una manera óptima cada uno de los recursos.
+
+# Resources
+Among the resources that were implemented were:
+1. SQL relational database.
+2. Blob storage.
+3. Uso de queue
+4. Key vault.
+5. webapp
+6. Api
+7. Log containers.
+8. Azure monitor
+9. Azure queue
+
+# How was the work done?
+Given the wide range of resources that Azure provides, an analysis was conducted of the company's needs, such as the database for information storage, Azure Blob Storage for storing static but necessary information, and Azure Monitor for detailed analysis of the flow within the web application and the information obtained from the API. Log containers and queue storage were also used to manage company information for detailed control and to handle background events.
+
+
+* Azure App Service: Used to set up the website and API.
+* Azure Queue: For managing messages that may be queued, or other types of resources.
+* Azure Database: A solution using the SQL database management system was used.
+* Key Vault: Used to store and manage access classes and secrets for sensitive resources, such as databases, APIs, and other elements that may be implemented in the infrastructure.
+* Azure Functions: Used and can be integrated with queue storage to process messages in the background, or for automated functions when a message is received in the queue.
+* Monitor: Used to integrate with application services and monitor application performance, as well as check for errors and availability.
+* Azure Cache for Redis: Easily scalable to handle large data loads, it can be adapted to different levels as needed. If the application requires more capacity, more nodes can be added.
+* Azure Bus: For data management.
+
+
+# Git 
+1. https://github.com/LLTKOJI/Terraform_repository1
+2. https://github.com/gersonM2001/terraformsolution2
+3. https://github.com/gersonM2001/terraformsolution3

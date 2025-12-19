@@ -1,0 +1,55 @@
+---
+// src/pages/[lang]/index.astro
+import Layout from '../../layouts/Layout.astro';
+import InfoGeneral from '../../components/InformacionGeneral.astro';
+import TecnologiasManejadas from '../../components/TecnologiasManejadas.astro';
+import HabilidadesComponente from '../../components/habilidadesComponente.astro';
+import { habilidades, habilidadesEn } from '../../content/habilidades.ts';
+import { tecnologias } from '../../content/tecnologias/tecnologias.ts';
+import { userInfoes, userInfoen } from '../../content/acerca';
+// Definimos idiomas para generar rutas estáticas
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+    { params: { lang: "en" } },
+  ];
+}
+
+// Obtenemos el idioma desde la URL
+const { lang } = Astro.params;
+const isEnglish = lang === "en";
+
+// Seleccionamos la info correcta según idioma
+const userInfo = isEnglish ? userInfoen : userInfoes;
+const habilidadesInfo = isEnglish ? habilidadesEn : habilidades;
+---
+
+<Layout title={userInfo.name}>
+
+  <!-- Info general -->
+  <div class="mb-8">
+    <InfoGeneral 
+      name={userInfo.name}
+      title={userInfo.title}
+      description={userInfo.description}
+      imageUrl={userInfo.imageUrl} 
+    />
+  </div>
+
+  <!-- Habilidades -->
+  <div class="mb-8">
+    <HabilidadesComponente 
+    habilidades={habilidadesInfo} />
+  </div>
+
+  <!-- Tecnologías -->
+  <div class="mb-8">
+    <TecnologiasManejadas 
+      lenguajes={tecnologias.lenguajes}
+      basesDeDatos={tecnologias.basesDeDatos}
+      frameworks={tecnologias.Frameworks}
+      lang={lang}
+    />
+  </div>
+
+</Layout>

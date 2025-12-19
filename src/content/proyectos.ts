@@ -1,34 +1,26 @@
-import Proyectos from "../components/proyectos.astro";
 import type { ItemsProps } from "../interfaces/interfaces";
 
-// Definimos la interfaz para un proyecto
-export interface Proyecto {
-    titulo: string;
-    descripcion: string;
-    herramientas: string;
-    imagenUrl: string;
-  }
-  
-
-
-  export const NavProyectos: ItemsProps[] = [
-    {
-      titulo: 'Inicio',
-      href: '/',      
-    },
-    {
-      titulo: 'Proyectos',
-      href: '/proyectos',
+export const NavProyectos: ItemsProps[] = [
+  {
+    titulo: "Inicio",
+    tituloEn: "Home",
+    href: "/", // RELATIVO
+  },
+  {
+    titulo: "Proyectos",
+    tituloEn: "Projects",
+    href: "/projects",
     subItems: [
-      {titulo: 'SharkCat', href: '/projects/sharkcat'},   
-      {titulo: 'Inteligencia Artificial', href: '/projects/inteligencia'},
-      {titulo: 'Colegio de contadores', href: '/projects/colegio'},
-      {titulo: 'Analista de datos', href: '/projects/analista'},
-      {titulo: 'SwiftDrop', href: '/projects/swiftdrop'},
-      {titulo: 'Inversiones Caceres', href: '/projects/inversiones'},  
-      {titulo: 'Infraestructura con Azure y Terraform', href: '/projects/terraform'},
-      {titulo: 'Servicios en la nube con PokeApi', href: '/projects/pokeapi'},
-  ]
-    }
-      ];
+      { titulo: "SharkCat", tituloEn: "SharkCat", href: "/projects/sharkcat" },
+      { titulo: "Inteligencia Artificial", tituloEn: "Artificial Intelligence", href: "/projects/inteligencia" },
+      { titulo: "Colegio de contadores", tituloEn: "Accountants College", href: "/projects/colegio" },
+      { titulo: "Analista de datos", tituloEn: "Data Analyst", href: "/projects/analista" },
+      { titulo: "SwiftDrop", tituloEn: "SwiftDrop", href: "/projects/swiftdrop" },
+      { titulo: "Inversiones Caceres", tituloEn: "Inversiones Caceres", href: "/projects/inversiones" },
+      { titulo: "Infraestructura con Azure y Terraform", tituloEn: "Azure and Terraform Infrastructure", href: "/projects/terraform" },
+      { titulo: "Servicios en la nube con PokeApi", tituloEn: "Cloud services with PokeApi", href: "/projects/pokeapi" },
+    ],
+  },
+];
+
   

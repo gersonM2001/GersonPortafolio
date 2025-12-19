@@ -1,22 +1,33 @@
 ---
+
 import Layout from '../layouts/Layout.astro';
 import InfoGeneral from '../components/InformacionGeneral.astro';
 import TecnologiasManejadas from '../components/TecnologiasManejadas.astro';
-import HabilidadesComponente from '../components/habilidadesComponente.astro';  // Asegúrate de que el nombre esté en mayúsculas
+import HabilidadesComponente from '../components/habilidadesComponente.astro';
 import { habilidades } from '../content/habilidades.ts';
 import { tecnologias } from '../content/tecnologias/tecnologias.ts';
-import { userInfo } from '../content/acerca';
+import { userInfoes, userInfoen } from '../content/acerca';
 
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+    { params: { lang: "en" } },
+  ];
+}
+
+const { lang } = Astro.params;
+const userInfo = lang === "es" ? userInfoes : userInfoen;
 ---
 
-<Layout title={userInfo.name}>
+
+<Layout title={userInfoes.name}>
   <!-- Llamada al componente InfoGeneral -->
    <div class="mb-8">
     <InfoGeneral 
-    name={userInfo.name}
-    title={userInfo.title}
-    description={userInfo.description}
-    imageUrl={userInfo.imageUrl} 
+    name={userInfoes.name}
+    title={userInfoes.title}
+    description={userInfoes.description}
+    imageUrl={userInfoes.imageUrl} 
   />
    </div>
 

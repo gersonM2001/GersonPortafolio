@@ -1,0 +1,38 @@
+---
+slug: "inteligencia"
+lang: "es"
+title: "Program for facial and emotion detection"
+description: "Artificial intelligence focused on health or safety"
+---
+
+# Creation of the Artificial Neural Network
+Development of an artificial neural network, which was carried out in two phases:
+1. Neural network for facial recognition.
+2. Neural network for emotion detection.
+
+## Neural Network for Face Learning
+This phase of the project focused on developing a network that could learn faces upon input of a new one.
+For training this network, a convolutional algorithm was used, utilizing tools provided by the Keras framework. The lfw dataset was extracted from Keras and subsequently normalized, flattened, and enhanced to remove relief and thus clean the images used for training. This ensured the network had the fewest possible errors.
+Using five layers for the network, an 88% training success rate was achieved.
+
+## Neural network for face recognition
+For the training of the network for emotion detection, a dataset called *CelebA* was used.
+This large dataset facilitated the acquisition of images for recognition.
+In this part of the project, *3 convolutional layers* were used, although the maximum learning achieved with this layer was *66%*.
+
+## Application
+Once the training data was exported, a desktop application was created using the Python language
+to facilitate user interaction. This application consisted of two parts: The first involved entering a new face,
+then, having already recorded 200 photographs in all facial poses, an embedding was performed to add this new information.
+The next phase of this application was to recognize the face and the emotion the person might have.
+Certain Keras libraries were used, such as:
+- cv2
+- numpy
+- pickle
+- tensorflow.keras.models
+- sklearn.metrics.pairwise
+
+## Technologies used.
+- Keras
+- Tensorflow
+- Python

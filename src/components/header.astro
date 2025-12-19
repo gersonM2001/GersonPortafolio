@@ -1,22 +1,50 @@
 ---
 ---
-
 <header class="bg-[#023048] text-white p-6 shadow-lg rounded-lg">
-  <!-- Logo/Título -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"
+  >
+    <!-- Logo/Título -->
     <div class="text-2xl font-semibold">
-      <span>Portafolio</span>, <span class="font-light">Gerson Lorenzo</span>
+      <span data-lang="es">Portafolio</span> <span data-lang="en" class="hidden">Portfolio</span>, <span class="font-light">Gerson Lorenzo</span>
+      
+    </div>
+
+    <!-- Toggle idioma -->
+    <div class="flex items-center gap-3">
+      <span class="text-sm font-medium">ES</span>
+
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input
+          type="checkbox"
+          id="languageToggle"
+          class="sr-only peer"
+        />
+        <div
+          class="w-12 h-6 bg-gray-400 peer-focus:outline-none rounded-full peer
+                 peer-checked:bg-blue-500 transition-all"
+        ></div>
+        <div
+          class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full
+                 transition-all peer-checked:translate-x-6"
+        ></div>
+      </label>
+
+      <span class="text-sm font-medium">EN</span>
     </div>
   </div>
 </header>
 
+<script>
+ import "../scripts/languajeToggle.js";
+</script>
+
+
 <style is:global>
-  /* Añadir bordes suaves al header */
   header {
-    border-radius: 12px; /* Bordes más suaves */
+    border-radius: 12px;
   }
 
-  /* Agregar transición suave en hover o al cambio de estado */
   header:hover {
     transition: all 0.3s ease-in-out;
   }

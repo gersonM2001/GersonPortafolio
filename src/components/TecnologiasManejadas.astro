@@ -1,38 +1,55 @@
 ---
-import { tecnologias } from '../content/tecnologias/tecnologias.ts';
-
 export interface Props {
-  lenguajes: { nombre: string; icono: string; porcentaje: number }[]; // Asegúrate de que los lenguajes tengan un 'porcentaje'
-  basesDeDatos: { nombre: string; icono: string; porcentaje: number }[]; // Lo mismo para las bases de datos
-  frameworks: { nombre: string; icono: string; porcentaje: number }[]; // Y para los frameworks
+  lenguajes: { nombre: string; icono: string; porcentaje: number }[];
+  basesDeDatos: { nombre: string; icono: string; porcentaje: number }[];
+  frameworks: { nombre: string; icono: string; porcentaje: number }[];
+  lang: string; // <-- NUEVO: idioma actual
 }
+
+const { lang } = Astro.props;
+
+// Textos según idioma
+const textos = {
+  es: {
+    tituloPrincipal: "Tecnologías Manejadas",
+    lenguajes: "Lenguajes de Programación",
+    basesDeDatos: "Bases de Datos",
+    frameworks: "Frameworks",
+    porcentaje: "%"
+  },
+  en: {
+    tituloPrincipal: "Managed Technologies",
+    lenguajes: "Programming Languages",
+    basesDeDatos: "Databases",
+    frameworks: "Frameworks",
+    porcentaje: "%"
+  }
+};
+
+const t = lang === "en" ? textos.en : textos.es;
 ---
 
 <div class="bg-[#677791] p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-  <h2 class="text-3xl font-bold text-center text-[#f9f9f9] mb-6">Tecnologías Manejadas</h2>
+  <h2 class="text-3xl font-bold text-center text-[#f9f9f9] mb-6">{t.tituloPrincipal}</h2>
 
   <!-- Lenguajes de Programación -->
   <section class="mb-8">
-    <h3 class="text-2xl font-semibold text-[#f9f9f9] mb-4">Lenguajes de Programación</h3>
+    <h3 class="text-2xl font-semibold text-[#f9f9f9] mb-4">{t.lenguajes}</h3>
     <div class="grid grid-cols-3 gap-6">
-      {tecnologias.lenguajes.map((lenguaje) => (
+      {Astro.props.lenguajes.map((lenguaje) => (
         <div class="text-center bg-[#f9f9f9] p-4 rounded-lg shadow-md">
           <img src={lenguaje.icono} alt={lenguaje.nombre} class="w-16 h-16 mx-auto mb-2" />
           <p class="text-[#677791] font-semibold">{lenguaje.nombre}</p>
-
-          <!-- Barra de porcentaje -->
           <div class="relative pt-1">
             <div class="flex mb-2 items-center justify-between">
-              <span class="text-sm text-[#677791]">{lenguaje.porcentaje}%</span>
+              <span class="text-sm text-[#677791]">{lenguaje.porcentaje}{t.porcentaje}</span>
             </div>
             <div class="flex mb-4">
               <div class="w-full bg-gray-300 rounded-full">
                 <div
                   class="bg-[#023048] text-xs leading-none py-1 text-center text-[#f9f9f9] rounded-full"
                   style={`width: ${lenguaje.porcentaje}%`}
-                >
-                  {/* Barra de progreso */}
-                </div>
+                ></div>
               </div>
             </div>
           </div>
@@ -42,27 +59,23 @@ export interface Props {
   </section>
 
   <!-- Bases de Datos -->
-  <section>
-    <h3 class="text-2xl font-semibold text-[#f9f9f9] mb-4">Bases de Datos</h3>
+  <section class="mb-8">
+    <h3 class="text-2xl font-semibold text-[#f9f9f9] mb-4">{t.basesDeDatos}</h3>
     <div class="grid grid-cols-3 gap-6">
-      {tecnologias.basesDeDatos.map((base) => (
+      {Astro.props.basesDeDatos.map((base) => (
         <div class="text-center bg-[#f9f9f9] p-4 rounded-lg shadow-md">
           <img src={base.icono} alt={base.nombre} class="w-16 h-16 mx-auto mb-2" />
           <p class="text-[#677791] font-semibold">{base.nombre}</p>
-
-          <!-- Barra de porcentaje -->
           <div class="relative pt-1">
             <div class="flex mb-2 items-center justify-between">
-              <span class="text-sm text-[#677791]">{base.porcentaje}%</span>
+              <span class="text-sm text-[#677791]">{base.porcentaje}{t.porcentaje}</span>
             </div>
             <div class="flex mb-4">
               <div class="w-full bg-gray-300 rounded-full">
                 <div
                   class="bg-[#023048] text-xs leading-none py-1 text-center text-[#f9f9f9] rounded-full"
                   style={`width: ${base.porcentaje}%`}
-                >
-                  {/* Barra de progreso */}
-                </div>
+                ></div>
               </div>
             </div>
           </div>
@@ -73,26 +86,22 @@ export interface Props {
 
   <!-- Frameworks -->
   <section>
-    <h3 class="text-2xl font-semibold text-[#f9f9f9] mb-4">Frameworks</h3>
+    <h3 class="text-2xl font-semibold text-[#f9f9f9] mb-4">{t.frameworks}</h3>
     <div class="grid grid-cols-3 gap-6">
-      {tecnologias.Frameworks.map((framework) => (
+      {Astro.props.frameworks.map((framework) => (
         <div class="text-center bg-[#f9f9f9] p-4 rounded-lg shadow-md">
           <img src={framework.icono} alt={framework.nombre} class="w-16 h-16 mx-auto mb-2" />
           <p class="text-[#677791] font-semibold">{framework.nombre}</p>
-
-          <!-- Barra de porcentaje -->
           <div class="relative pt-1">
             <div class="flex mb-2 items-center justify-between">
-              <span class="text-sm text-[#677791]">{framework.porcentaje}%</span>
+              <span class="text-sm text-[#677791]">{framework.porcentaje}{t.porcentaje}</span>
             </div>
             <div class="flex mb-4">
               <div class="w-full bg-gray-300 rounded-full">
                 <div
                   class="bg-[#023048] text-xs leading-none py-1 text-center text-[#f9f9f9] rounded-full"
                   style={`width: ${framework.porcentaje}%`}
-                >
-                  {/* Barra de progreso */}
-                </div>
+                ></div>
               </div>
             </div>
           </div>
