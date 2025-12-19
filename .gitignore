@@ -22,3 +22,41 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# VSCode setting folder
+.vscode/
+# local env files
+.env.local
+.env.*.local
+# cloudflare workers site folder
+workers-site/
+# wrangler config file
+wrangler.toml
+# build output for cloudflare workers
+worker-dist/
+.cloudflare/
+# lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+# temporary files
+.tmp/
+.cache/
+# Astro build folder
+dist/
+.astro/
+# Tailwind CSS build folder
+public/styles/tailwind.css
+# SvelteKit build folder
+.build/
+# Vite cache folder
+node_modules/.vite/
+# Storybook build folder
+storybook-static/
+
+
+
+# local test files
+src/content/test/
+# local draft files
+
