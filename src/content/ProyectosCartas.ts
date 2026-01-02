@@ -81,6 +81,15 @@ import type { Proyecto } from '../interfaces/interfaces';
     slug: 'pokeapi',
     slugEn: 'pokeapi',
     },
-    
+    {
+    titulo: 'Sistema de inventario y facturación',
+    tituloEn: 'Inventory and Billing System',
+    descripcion: 'Desarrollo de un sistema de inventario y facturación para una tienda de multiples productos',
+    descripcionEn: 'Development of an inventory and billing system for a store with multiple products',
+    herramientas: 'C#, .NET, SQL Server',
+    imagenUrl: '/imagenes/ImagenesPrincipales/inventario&facturacion.png',
+    slug: 'facturacion',
+    slugEn: 'facturacion',
+    },
 ];
 

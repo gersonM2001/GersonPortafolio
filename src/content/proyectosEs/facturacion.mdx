@@ -1,0 +1,47 @@
+---
+slug: "facturacion"
+lang: "es"
+title: "Sistema de inventario y facturación"
+description: "Sistema para manejo de inventario y ventas de una tienda"
+---
+
+# Analisis de requerimientos
+En la fase inicial del proyecto se llevó a cabo un levantamiento de *requerimientos funcionales*
+ y *no funcionales* mediante entrevistas directas con el propietario de la tienda. 
+ A partir de este análisis se documentaron las reglas de negocio, los flujos operativos del inventario
+ y los niveles jerárquicos de acceso, garantizando la correcta segregación de responsabilidades dentro del sistema.
+
+Adicionalmente, se realizó un *análisis de viabilidad técnica y económica*, 
+evaluando el hardware disponible, los costos estimados de implementación y las restricciones del entorno, 
+lo cual permitió definir una solución alineada a las capacidades reales del cliente.
+
+# Diseño
+El sistema fue desarrollado bajo una arquitectura modular, permitiendo asi:
+ - Separar de forma clara entre la lógica del negocio y la interfaz de usuario.
+ - Escalabilidad para futuras funcionalidades
+ - Mantenimiento y depuración eficiente.
+
+# Desarrollo
+
+Dada las limitaciones técnicas que el cliente tenia, se optó por el desarrollo de un  sistema local con windows forms
+sobre *.NET framework 4.7.2*, garantizando asó compatibilidad, estabilidad y facilidad de mantenimiento
+
+# Funcionalidades clave
+
+- Gestión de usuarios.
+- Control de acceso por roles.
+- Validación de datos y manejo de errores.
+- Persistencia de información mediante motor de base de datos relacional.
+- Control de inventario bajo distintos enfoques.
+- Control de ventas.
+- Facturación para cliente externo.
+
+# Tecnologias utilizadas
+1. C#
+2. .NET framework 4.7.2
+3. Windows forms
+4. Sql Server
+5. GIT 
+
+# GIT
+https://github.com/gersonM2001/facturacion.git

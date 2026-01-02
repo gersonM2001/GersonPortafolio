@@ -5,17 +5,37 @@ description: "ETL development"
 ---
 
 # What was done?
-This project started from scratch, using a relational database, developed in Oracle, which contained information about sales for an auto parts company.
+This project consisted of the design and implementation of an ETL (Extract, Transform, Load) process
+started from scratch, using a relational database in Oracle that contained
+historical sales information for a company dedicated to the sale of auto parts.
 
-The project required migrating from a relational model, which is how the information was originally stored,
- and extracting it from that database. This data was then transformed into simpler, more refined, and easily 
- understandable information to be placed in a new database, this time using the *snowflake* model,
- this will be inserted *SQL Express* database management system. This was then connected to the *Tableu* tool to dynamically generate visually 
-appealing charts, that were easy to understand and explain how the historical data was performing.
+The main objective was to extract the data from the original relational model,
+transform it through cleansing, normalization, and simplification processes, and load it into
+a new database designed using a Snowflake Schema dimensional model,
+implemented in SQL Server Express.
+
+This new model allowed for:
+
+1. A better understanding of the sales history
+2. Optimization of analytical queries
+3. Preparation of the information for use in Business Intelligence tools
+
+Finally, the dimensional database was integrated with Tableau, enabling the
+generation of dynamic and interactive dashboards focused on analyzing the business's historical
+performance and supporting decision-making.
 
 ## How was it done?
-It was developed through a web application, with HTML, CSS, and JavaScript on the frontend; Node.js and Express were used for the backend.
+The ETL process was developed using a web application, which served as the control and execution interface for the data flow.
 
+Fronend: HTML, CSS, and JavaScript for visualization and process execution.
+
+Backend: Node.js and Express handled database connections, data extraction, transformation, and loading.
+
+The following processes were implemented:
+
+- Data extraction from Oracle
+- Data transformation and cleaning
+- Structured loading into SQL Server Express
 ## Technologies used
 - Tableu
 - oracle
@@ -25,3 +45,5 @@ It was developed through a web application, with HTML, CSS, and JavaScript on th
 - HTML
 - JavaScript
 
+## Git
+https://github.com/gersonM2001/dataWareHouseAutoPartes.git

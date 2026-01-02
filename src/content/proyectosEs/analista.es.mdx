@@ -6,18 +6,39 @@ description: "Desarrollo de ETL"
 ---
 
 # ¿Qué se realizó?
-Este proyecto se inició de cero, usando una base de datos relacional, desarrollada en oracle, que tenia información acerca
-de ventas de una empresa de venta de autorepuestos.
+Este proyecto consistió en el diseño e implementación de un proceso *ETL (Extract, Transform, Load)*
+iniciado desde cero, a partir de una base de datos relacional en *Oracle* que contenía 
+información histórica de ventas de una empresa dedicada a la comercialización de autopartes.
 
-El proyecto requeria que se pasara de un modelo relacional, que es como la información se encontraba originalmente, y se la extrajera
-de esa base, para luego transformarla en información sencilla y mas depurada, facilmente entendible, para colocarla en una nueva
-base de datos, esta vez en *modelo copo de nieve*, pero en el gestor de *SQL Express*.
-Este último para conectarlo con la herrmaienta *Tableu*, para generar dinámicamente, gráficos llamativos, y que fuera fáciles de comprender y explicar
-como estaba funcionando el histórico.
+El objetivo principal fue extraer los datos desde el modelo relacional original, 
+transformarlos mediante procesos de depuración, normalización y simplificación, y cargarlos en 
+una nueva base de datos diseñada bajo un modelo dimensional tipo *copo de nieve (Snowflake Schema)*,
+implementado en *SQL Server Express.*
+
+Este nuevo modelo permitió:
+
+1. Mejor comprensión del histórico de ventas
+2. Optimización de consultas analíticas
+3. Preparación de la información para consumo en herramientas de Business Intelligence
+
+Finalmente, la base de datos dimensional fue integrada con *Tableau*, permitiendo la 
+generación de dashboards dinámicos e interactivos, enfocados en el análisis del comportamiento
+ histórico del negocio y la toma de decisiones.
 
 ## ¿Cómo se trabajó?
-Se desarrollo a traves de una webapp, en el frontend con html, css y javascript; para la parte del backend 
-se uso nodejs y express.
+El proceso ETL fue desarrollado mediante una aplicación web, utilizada como interfaz de control 
+y ejecución del flujo de datos.
+
+Frontend: HTML, CSS y JavaScript, para la visualización y ejecución de procesos
+
+Backend: Node.js y Express, encargados de la conexión con las bases de datos, la extracción, 
+transformación y carga de la información
+
+Se implementaron procesos de:
+
+- Extracción de datos desde Oracle
+- Transformación y limpieza de información
+- Carga estructurada hacia SQL Server Express
 
 ## Tecnologias utilizadas
 - Tableu
@@ -27,3 +48,6 @@ se uso nodejs y express.
 - Express
 - HTML
 - JavaScript
+
+## Git
+https://github.com/gersonM2001/dataWareHouseAutoPartes.git
