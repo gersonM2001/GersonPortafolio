@@ -27,6 +27,8 @@ export interface Tecnologia {
         {nombre:'nestjs', icono: '/imagenes/nestjs.png', porcentaje: 50},
         {nombre:'astrojs', icono: '/imagenes/astrojs.png', porcentaje: 50},
         {nombre:'express', icono: '/imagenes/express.png', porcentaje: 50},
+        {nombre:'fastapi', icono: '/imagenes/fastapi.png', porcentaje: 30},
+        {nombre: 'flutter', icono: '/imagenes/flutter.jpg', porcentaje: 30},
     ] as Tecnologia[]
   };
   

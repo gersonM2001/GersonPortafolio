@@ -19,7 +19,8 @@ export const NavProyectos: ItemsProps[] = [
       { titulo: "Inversiones Caceres", tituloEn: "Inversiones Caceres", href: "/projects/inversiones" },
       { titulo: "Infraestructura con Azure y Terraform", tituloEn: "Azure and Terraform Infrastructure", href: "/projects/terraform" },
       { titulo: "Servicios en la nube con PokeApi", tituloEn: "Cloud services with PokeApi", href: "/projects/pokeapi" },
-      { titulo: "Sistema de inventario y facturación", tituloEn: "Inventory and Billing System", href: "/projects/facturacion"}
+      { titulo: "Sistema de inventario y facturación", tituloEn: "Inventory and Billing System", href: "/projects/facturacion"},
+      { titulo: "Aplicativo movil para manejo de finanzas personales", tituloEn: "Mobile application for personal finance management", href: "/projects/finanzas"},
     ],
   },
 ];

@@ -1,6 +1,36 @@
 import type { Proyecto } from '../interfaces/interfaces';
 
  export const ProyectosCartas: Proyecto[] = [
+        {
+        titulo: 'Aplicativo móvil para gestión de finanzas personales',
+        tituloEn: 'Mobile application for personal finance management',
+        descripcion: 'Desarrollo de una aplicación móvil para la gestión de finanzas personales, con funcionalidades como seguimiento de gastos.',
+        descripcionEn: 'Development of a mobile application for personal finance management, with features such as expense tracking.',
+        herramientas: 'Flutter, Dart, sqlite',
+        imagenUrl: '/imagenes/ImagenesPrincipales/finanzas.jpeg',
+        slug: 'finanzas',
+        slugEn: 'finanzas',
+    },
+            {
+    titulo: 'Infraestructura con Azure y Terraform',
+    tituloEn:'Infrastructure with Azure and Terraform',
+    descripcion: 'Infraestructura como código, para la creación de una infraestructura en Azure, usando Terraform',
+    descripcionEn:'Infrastructure as code, for the creation of infrastructure in Azure, using Terraform',
+    herramientas: 'Azure, Terraform, Docker',
+    imagenUrl: '/imagenes/terraform.png',
+    slug: 'terraform',
+    slugEn: 'terraform',
+    },
+        {
+    titulo: 'Sistema de inventario y facturación',
+    tituloEn: 'Inventory and Billing System',
+    descripcion: 'Desarrollo de un sistema de inventario y facturación para una tienda de multiples productos',
+    descripcionEn: 'Development of an inventory and billing system for a store with multiple products',
+    herramientas: 'C#, .NET, SQL Server',
+    imagenUrl: '/imagenes/ImagenesPrincipales/inventario&facturacion.png',
+    slug: 'facturacion',
+    slugEn: 'facturacion',
+    },
     {
     titulo: 'SharkCat',
     tituloEn: 'SharkCat',
@@ -31,6 +61,19 @@ import type { Proyecto } from '../interfaces/interfaces';
     slug: 'analista',
     slugEn: 'analista',
     },
+
+    {
+    titulo: 'Servicios en la nube con PokeApi',
+    tituloEn: 'Cloud Services with PokeApi',
+    descripcion: 'Desarrollo de un sistema para obtener información de pokemones, usando la PokeApi y con servicios en la nube',
+    descripcionEn: 'Development of a system to obtain information about pokemons, using the PokeApi and with cloud services',
+    herramientas: 'Terraform, Azure, Docker, Next.js, SQL, FastAPI',
+    imagenUrl: '/imagenes/ImagenesPrincipales/pokeapi.png',
+    slug: 'pokeapi',
+    slugEn: 'pokeapi',
+    },
+
+
     {
     titulo: 'Colegio de Contadores Hondureños',
     tituloEn: 'Colegio de Contadores Hondureños',
@@ -61,35 +104,6 @@ import type { Proyecto } from '../interfaces/interfaces';
     slug: 'swiftdrop',
     slugEn: 'swiftdrop',
     },
-    {
-    titulo: 'Infraestructura con Azure y Terraform',
-    tituloEn:'Infrastructure with Azure and Terraform',
-    descripcion: 'Infraestructura como código, para la creación de una infraestructura en Azure, usando Terraform',
-    descripcionEn:'Infrastructure as code, for the creation of infrastructure in Azure, using Terraform',
-    herramientas: 'Azure, Terraform, Docker',
-    imagenUrl: '/imagenes/terraform.png',
-    slug: 'terraform',
-    slugEn: 'terraform',
-    },
-    {
-    titulo: 'Servicios en la nube con PokeApi',
-    tituloEn: 'Cloud Services with PokeApi',
-    descripcion: 'Desarrollo de un sistema para obtener información de pokemones, usando la PokeApi y con servicios en la nube',
-    descripcionEn: 'Development of a system to obtain information about pokemons, using the PokeApi and with cloud services',
-    herramientas: 'Terraform, Azure, Docker, Next.js, SQL, FastAPI',
-    imagenUrl: '/imagenes/ImagenesPrincipales/pokeapi.png',
-    slug: 'pokeapi',
-    slugEn: 'pokeapi',
-    },
-    {
-    titulo: 'Sistema de inventario y facturación',
-    tituloEn: 'Inventory and Billing System',
-    descripcion: 'Desarrollo de un sistema de inventario y facturación para una tienda de multiples productos',
-    descripcionEn: 'Development of an inventory and billing system for a store with multiple products',
-    herramientas: 'C#, .NET, SQL Server',
-    imagenUrl: '/imagenes/ImagenesPrincipales/inventario&facturacion.png',
-    slug: 'facturacion',
-    slugEn: 'facturacion',
-    },
+
 ];
 
