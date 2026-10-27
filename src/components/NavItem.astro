@@ -1,0 +1,52 @@
+---
+import type { ItemsProps } from '../interfaces/interfaces';
+// @ts-ignore: self-import recursivo
+import NavItem from './NavItem.astro';
+
+interface Props {
+  item: ItemsProps;
+  lang: string;
+  level?: number;
+}
+
+const { item, lang, level = 0 } = Astro.props;
+
+const label = lang === 'en' ? item.tituloEn : item.titulo;
+const hasChildren = !!item.subItems?.length;
+const href = item.href ? `/${lang}${item.href}` : undefined;
+
+const sizes = ['py-2 px-4', 'py-1.5 px-4 text-sm', 'py-1 px-4 text-xs'];
+const size = sizes[Math.min(level, 2)];
+const base = `block rounded-md transition-all hover:bg-[#023048] ${size}`;
+---
+
+<li>
+  {hasChildren ? (
+    <details class="group" open={level === 0}>
+      <summary class="flex items-center list-none cursor-pointer rounded-md hover:bg-[#023048] transition-all">
+        {href ? (
+          <>
+            {/* Título: navega */}
+            <a href={href} class={`flex-1 font-medium ${size}`}>{label}</a>
+            {/* Chevron: es parte del summary, así que despliega */}
+            <span class="px-3 py-2 transition-transform group-open:rotate-90">›</span>
+          </>
+        ) : (
+          <>
+            {/* Sin href: todo el título despliega */}
+            <span class={`flex-1 font-medium ${size}`}>{label}</span>
+            <span class="px-3 py-2 transition-transform group-open:rotate-90">›</span>
+          </>
+        )}
+      </summary>
+
+      <ul class="ml-3 mt-1 space-y-1 border-l border-white/20 pl-2">
+        {item.subItems!.map(sub => (
+          <NavItem item={sub} lang={lang} level={level + 1} />
+        ))}
+      </ul>
+    </details>
+  ) : (
+    <a href={href} class={base}>{label}</a>
+  )}
+</li>

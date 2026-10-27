@@ -4,25 +4,47 @@ export const NavProyectos: ItemsProps[] = [
   {
     titulo: "Inicio",
     tituloEn: "Home",
-    href: "/", // RELATIVO
+    href: "/",
   },
   {
     titulo: "Proyectos",
     tituloEn: "Projects",
     href: "/projects",
     subItems: [
-      { titulo: "SharkCat", tituloEn: "SharkCat", href: "/projects/sharkcat" },
-      { titulo: "Inteligencia Artificial", tituloEn: "Artificial Intelligence", href: "/projects/inteligencia" },
-      { titulo: "Colegio de contadores", tituloEn: "Accountants College", href: "/projects/colegio" },
-      { titulo: "Analista de datos", tituloEn: "Data Analyst", href: "/projects/analista" },
-      { titulo: "SwiftDrop", tituloEn: "SwiftDrop", href: "/projects/swiftdrop" },
-      { titulo: "Inversiones Caceres", tituloEn: "Inversiones Caceres", href: "/projects/inversiones" },
-      { titulo: "Infraestructura con Azure y Terraform", tituloEn: "Azure and Terraform Infrastructure", href: "/projects/terraform" },
-      { titulo: "Servicios en la nube con PokeApi", tituloEn: "Cloud services with PokeApi", href: "/projects/pokeapi" },
-      { titulo: "Sistema de inventario y facturación", tituloEn: "Inventory and Billing System", href: "/projects/facturacion"},
-      { titulo: "Aplicativo movil para manejo de finanzas personales", tituloEn: "Mobile application for personal finance management", href: "/projects/finanzas"},
+      {
+        titulo: "Desarrollo de software",
+        tituloEn: "Software Development",
+        subItems: [
+          { titulo: "SharkCat", tituloEn: "SharkCat", href: "/projects/sharkcat" },
+          { titulo: "SwiftDrop", tituloEn: "SwiftDrop", href: "/projects/swiftdrop" },
+          { titulo: "Colegio de contadores", tituloEn: "Accountants College", href: "/projects/colegio" },
+          { titulo: "Inversiones Caceres", tituloEn: "Inversiones Caceres", href: "/projects/inversiones" },
+          { titulo: "Sistema de inventario y facturación", tituloEn: "Inventory and Billing System", href: "/projects/facturacion" },
+          { titulo: "App móvil de finanzas personales", tituloEn: "Personal finance mobile app", href: "/projects/finanzas" },
+        ],
+      },
+      {
+        titulo: "BI y datos",
+        tituloEn: "BI & Data",
+        subItems: [
+          { titulo: "Empresa de autorespuestos", tituloEn: "Auto Parts Company", href: "/projects/analista" },
+        ],
+      },
+      {
+        titulo: "IA",
+        tituloEn: "AI",
+        subItems: [
+          { titulo: "Red neuronal artificial de reconocimiento facial y de emociones", tituloEn: "Artificial Neural Network for Facial Recognition and Emotion Detection", href: "/projects/inteligencia" },
+        ],
+      },
+      {
+        titulo: "Cloud e infraestructura",
+        tituloEn: "Cloud & Infrastructure",
+        subItems: [
+          { titulo: "Azure y Terraform", tituloEn: "Azure and Terraform", href: "/projects/terraform" },
+          { titulo: "Servicios en la nube con PokeApi", tituloEn: "Cloud services with PokeApi", href: "/projects/pokeapi" },
+        ],
+      },
     ],
   },
 ];
-
-  

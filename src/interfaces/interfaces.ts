@@ -2,8 +2,8 @@
  export interface ItemsProps {
     titulo: string;
     tituloEn?: string;
-    href: string;
     hrefEn?: string;
+    href?: string;
     subItems?: ItemsProps[];
   }
 
