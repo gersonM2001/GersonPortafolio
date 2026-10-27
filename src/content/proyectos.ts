@@ -28,6 +28,7 @@ export const NavProyectos: ItemsProps[] = [
         tituloEn: "BI & Data",
         subItems: [
           { titulo: "Empresa de autorespuestos", tituloEn: "Auto Parts Company", href: "/projects/analista" },
+          {titulo: "Analisis de efeciencia de equipo", tituloEn: "Team Efficiency Analysis", href: "/projects/rrhh" },
         ],
       },
       {

@@ -23,13 +23,10 @@ const { Content, headings } = await entry.render();
 ---
 <Layout title={entry.data.title}>
   <div class="max-w-4xl mx-auto px-6 py-8">
-    <!-- Título del entry -->
     <h1 class="slug-title">{entry.data.title}</h1>
-    
-    <!-- Descripción del entry -->
+
     <p class="slug-description">{entry.data.description}</p>
 
-    <!-- Tabla de Contenidos -->
     <nav class="slug-toc mb-8">
       <h2 class="text-2xl font-semibold mb-4 text-orange-800">Contenido</h2>
       <ul class="space-y-2">
@@ -43,8 +40,9 @@ const { Content, headings } = await entry.render();
       </ul>
     </nav>
 
-    <!-- Contenido del entry -->
-    <article class="prose prose-lg prose-orange max-w-none text-justify">
+    <!-- Contenido del entry (con estilos de imagen incluidos) -->
+    <article class="prose prose-lg prose-orange max-w-none text-justify
+                    prose-img:rounded-xl prose-img:shadow-md prose-img:mx-auto">
       <Content />
     </article>
   </div>

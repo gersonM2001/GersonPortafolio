@@ -2,9 +2,9 @@
 // src/pages/[lang]/projects/index.astro
 import Layout from "../../../layouts/Layout.astro";
 import { ProyectosCartas } from "../../../content/ProyectosCartas";
+import { Categorias } from "../../../content/categorias";
 import type { Proyecto } from "../../../interfaces/interfaces";
 
-// Definimos los idiomas posibles para getStaticPaths
 export async function getStaticPaths() {
   return [
     { params: { lang: "es" } },
@@ -12,9 +12,16 @@ export async function getStaticPaths() {
   ];
 }
 
-// Obtenemos el idioma desde la URL
 const { lang } = Astro.params;
 const isEnglish = lang === "en";
+
+// Agrupa los proyectos por categoría y oculta las categorías vacías
+const grupos = Categorias
+  .map((cat) => ({
+    cat,
+    proyectos: ProyectosCartas.filter((p: Proyecto) => p.categoria === cat.id),
+  }))
+  .filter((g) => g.proyectos.length > 0);
 ---
 
 <Layout title={isEnglish ? "Projects" : "Proyectos"}>
@@ -25,41 +32,43 @@ const isEnglish = lang === "en";
       {isEnglish ? "Projects" : "Mis Proyectos"}
     </h2>
 
-    <!-- GRID DE TARJETAS -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      {ProyectosCartas.map((proyecto: Proyecto) => (
-        <a href={`/${lang}/projects/${isEnglish ? proyecto.slugEn ?? proyecto.slug : proyecto.slug}`}>
-          <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow">
+    <!-- SECCIONES POR CATEGORÍA -->
+    {grupos.map(({ cat, proyectos }) => (
+      <section id={cat.id} class="mb-12 scroll-mt-8">
 
-            <!-- IMAGEN -->
-            <img
-              src={proyecto.imagenUrl}
-              alt={isEnglish ? proyecto.tituloEn ?? proyecto.titulo : proyecto.titulo}
-              class="w-full h-48 object-cover"
-            />
+        <h3 class="text-2xl font-bold text-orange-900 mb-6 pb-2 border-b-2 border-orange-200">
+          {isEnglish ? cat.tituloEn : cat.titulo}
+        </h3>
 
-            <!-- TÍTULO -->
-            <h3
-              class="text-xl font-semibold text-center text-gray-900 mt-4"
-            >
-              {isEnglish ? proyecto.tituloEn ?? proyecto.titulo : proyecto.titulo}
-            </h3>
+        <!-- GRID DE TARJETAS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {proyectos.map((proyecto: Proyecto) => (
+            <a href={`/${lang}/projects/${isEnglish ? proyecto.slugEn ?? proyecto.slug : proyecto.slug}`}>
+              <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow h-full">
 
-            <!-- DESCRIPCIÓN -->
-            <p
-              class="text-gray-600 text-center px-4 py-2"
-            >
-              {isEnglish ? proyecto.descripcionEn ?? proyecto.descripcion : proyecto.descripcion}
-            </p>
+                <img
+                  src={proyecto.imagenUrl}
+                  alt={isEnglish ? proyecto.tituloEn ?? proyecto.titulo : proyecto.titulo}
+                  class="w-full h-48 object-cover"
+                />
 
-            <!-- HERRAMIENTAS -->
-            <p class="text-sm text-gray-500 text-center mb-4">
-              <strong>{isEnglish ? "Tools" : "Herramientas"}:</strong> {proyecto.herramientas}
-            </p>
+                <h4 class="text-xl font-semibold text-center text-gray-900 mt-4">
+                  {isEnglish ? proyecto.tituloEn ?? proyecto.titulo : proyecto.titulo}
+                </h4>
 
-          </div>
-        </a>
-      ))}
-    </div>
+                <p class="text-gray-600 text-center px-4 py-2">
+                  {isEnglish ? proyecto.descripcionEn ?? proyecto.descripcion : proyecto.descripcion}
+                </p>
+
+                <p class="text-sm text-gray-500 text-center mb-4 px-4">
+                  <strong>{isEnglish ? "Tools" : "Herramientas"}:</strong> {proyecto.herramientas}
+                </p>
+
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
   </div>
 </Layout>
